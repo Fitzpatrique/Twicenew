@@ -1,0 +1,15 @@
+{% extends 'base.html' %}  
+
+{% block head %} 
+    
+{% endblock %}
+ 
+{% block body %}
+
+    <h1>Paystack Payment</h1>
+    <form>
+        <script src="https://js.paystack.co/v1/inline.js"></script>
+        <script type="module" src="{{ url_for('static', filename = 'js/data.js')}}"></script>
+    </form> 
+
+{% endblock %}
