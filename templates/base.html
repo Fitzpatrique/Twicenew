@@ -5,14 +5,15 @@
 		<meta charset="utf-8">
 	  	<meta name="theme-color">  
 		<!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
+		<link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename = 'css/style.css')}}"/>
 		<link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename = 'css/index.css')}}"/>
 		<link rel="icon" type="image/jpg" href="{{ url_for('static', filename = 'image/twice new.jpg')}}" > 
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,100&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 		<!--link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}"-->
 		<title> TWICE NEW </title>
 		<meta name = "description" content = "Looks so good they would think it's new">
-		<meta name="keywords" content="thrift,online store,store,marketplace">
+		<meta name="keywords" content="thrift,online store,store,marketplace,fashion,fashion store">
+		<script src="{{ url_for('static', filename='js/changePassword.js') }}"></script>
 	  
 		{% block head %}{% endblock head %}
 
@@ -22,6 +23,36 @@
 
 	    {% endblock body %}
 		<script rel="javascript" type= "text/javascript" src="{{ url_for('static', filename = 'js/index.js')}}"></script>
+		<div class="container">
+			<div class="chatbox">
+				<div class="chatbox__support">
+					<div class="chatbox__header">
+						<div class="chatbox__image--header">
+							<img src="https://img.icons8.com/color/48/null/circled-user-male-skin-type-5--v1.png" alt="image">
+						</div>
+						<div class="chatbox__content--header">
+							<h4 class="chatbox__heading--header">Chat support</h4>
+							<p class="chatbox__description--header">Hi. My name is Louch. How can I help you?</p>
+						</div>
+					</div>
+					<div class="chatbox__messages">
+						<div></div>
+					</div>
+					<div class="chatbox__footer">
+						<input type="text" placeholder="Write a message...">
+						<button class="chatbox__send--footer send__button">Send</button>
+					</div>
+				</div>
+				<div class="chatbox__button">
+					<button><img src="{{ url_for('static', filename='image/chatbox-icon.svg') }}" /></button>
+				</div>
+			</div>
+		</div>
+		
+			<!--script>
+				$SCRIPT_ROOT = {{ request.script_root|tojson }};
+			</script-->
+			<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
 	</body>
 {% endblock html %}
 </html>
