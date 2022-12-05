@@ -25,7 +25,6 @@ conn.execute('''CREATE TABLE products
         compared_price INTEGER,
         vendor TEXT,
         tags TEXT,
-        variants,
 		description TEXT,
 		image TEXT,
 		stock INTEGER,
@@ -37,20 +36,23 @@ conn.execute('''CREATE TABLE kart
 		(userId INTEGER,
 		productId INTEGER,
         amount INTEGER,
+        variants TEXT,
 		FOREIGN KEY(userId) REFERENCES users(userId),
 		FOREIGN KEY(productId) REFERENCES products(productId)
 		)''')
 
 conn.execute('''CREATE TABLE categories
 		(categoryId INTEGER PRIMARY KEY,
-		name TEXT
+		name TEXT,
+        image TEXT
 		)''')
 
 conn.execute('''CREATE TABLE orders
-		(orderId INTEGER PRIMARY KEY,
-        userId INTEGER,
+		(userId INTEGER,
 		productId INTEGER,
         amount INTEGER,
+        variants TEXT,
+        price INTEGER,
         created_at TEXT,
         delivery_date TEXT,
         payment_status TEXT,

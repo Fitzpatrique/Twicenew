@@ -5,5 +5,22 @@
 {% endblock %}
  
 {% block body %}
-    <h1>HELLO {{user}}</h1>
+    
+
+    <div class="display">
+        <div class="displayCategory">
+            <h2>Shop by Category: </h2>
+            <ul>
+                {% for row in categoryData %}
+                <li><a href="{{ url_for('displayCategory',category_name=row[1],categoryId=row[0]) }}">{{row[1]}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+
+
+
+
+        </div>
+    </div>
 {% endblock %}

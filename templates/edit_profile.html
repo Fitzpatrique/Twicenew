@@ -1,0 +1,22 @@
+{% extends 'base.html' %}  
+
+{% block head %} 
+    
+{% endblock %}
+ 
+{% block body %}
+    <div class="display">
+        <h2>Edit profile</h2>
+        <form action="/updateProfile" method="POST">
+            <p>Email:<input type="email" name="email" value={{profileData[1]}} readonly="readonly"></p>
+            <p>username:<input type="text" name="username" value={{profileData[2]}}></p>
+            <p>Delivery Address: <input type="text" name="delivery_address" value={{profileData[3]}}></p>
+            <p>Newsletter Subscription: <input type="text" name="subscription_status" value={{profileData[4]}}></p>
+            <p>City: <input type="text" name="city" value={{profileData[5]}}></p>
+            <p>State: <input type="text" name="state" value={{profileData[6]}}></p>
+            <p>Country: <input type="text" name="country" value={{profileData[7]}}></p>
+            <p>Phone Number: <input type="text" name="phone" value={{profileData[8]}}></p>
+            <input type="submit" value="Save">
+        </form>
+    </div>
+{% endblock %}

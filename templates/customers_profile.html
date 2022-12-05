@@ -1,0 +1,19 @@
+{% extends 'base.html' %}  
+
+{% block head %} 
+    
+{% endblock %}
+ 
+{% block body %}
+
+<div class="display">
+	<a href="/account/profile/edit">Edit Profile</a><br>
+	<a href="/account/profile/changePassword">Change password</a>
+	{% if email == admin_email %}
+	<div id="signInButton">
+		<a href="/admin">Admin Panel</a>
+	</div>
+	{% endif %}
+</div>
+ 
+{% endblock %}

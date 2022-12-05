@@ -5,11 +5,44 @@
 {% endblock %}
  
 {% block body %}
+    {% if noOfItems == 0 %}
 
-    <h1>Paystack Cart</h1>
-    <h3>Proceed to checkout</h3>
+        <h1>Cart is empty</h1>
+        <p><a href="{{url_for('index')}}">Back to home</a></p>
+        
+    {% else %}
 
-    <a href="/checkout"><button>Pay</button></a>
-    
+        <div id="cartItems">
+            <h2>Shopping Cart</h2>
+            <div id="tableItems">
+                {% for row in products %}
+                <div>
+                    <hr id="seperator">
+                    <div id="itemImage">
+                        <img src="{{url_for('static', filename='upload/'+row[5])}}" id="image" width=100px height=100px/>
+                    </div>
+                    <div id="itemName">
+                        <span id="itemNameTag">{{row[1]}}</span><br>
+                        In stock<br>
+                        <a href="/removeFromCart?productId={{row[0]}}">Remove</a>
+                    </div>
+                    <div id="itemPrice">
+                        ₦{{row[2]}}
+                    </div>
+                    <div id="amount">
+                        No. of items: {{row[3]}}
+                    </div>
+                </div>
+                {% endfor %}
+                <hr id="seperator">
+                <div id="total">
+                    <span id="subtotal">Subtotal</span> : ₦{{totalPrice}}
+                </div>
+            </div>
+        </div>
+        
+
+        <a href="/checkout"><button>Proceed to checkout</button></a>
+    {% endif %}
 
 {% endblock %} 

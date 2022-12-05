@@ -7,6 +7,7 @@
 		<!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
 		<link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename = 'css/style.css')}}"/>
 		<link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename = 'css/index.css')}}"/>
+		<link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename = 'css/page.css')}}"/>
 		<link rel="icon" type="image/jpg" href="{{ url_for('static', filename = 'image/twice new.jpg')}}" > 
 		<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 		<!--link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}"-->
@@ -19,6 +20,42 @@
 
 	</head>
 	<body>
+
+		<div id="title">
+			<a href="/">
+				<img id="logo" src= "{{ url_for('static', filename='image/logo.png') }}" />
+			</a>
+			<form>
+				<input id="searchBox" type="text" name="searchQuery">
+				<input id="searchButton" type="submit" value="Search">
+			</form>
+		
+			{% if not loggedIn %}
+			<div id="signInButton">
+				<a class="link" href="/loginForm">Sign In</a>
+			</div>
+			{% else %}
+			<div class="dropdown">
+				<button class="dropbtn">Hello, <br>{{username}}</button>
+				<div class="dropdown-content">
+					<a href="/account/orders">Your orders</a>
+					<a href="/account/profile/view">Your Profile</a>
+					
+					<a href="/logout">Sign Out</a>
+				</div>
+			</div>
+			{% endif %}
+			<div id="kart">
+				<a class="link" href="/cart">
+					<img src="{{url_for('static', filename='image/shoppingCart.png')}}" id="cartIcon" />
+					CART {{noOfItems}}
+				</a>
+			</div>
+		</div>
+		<hr>
+
+
+
         {% block body %}
 
 	    {% endblock body %}

@@ -4,6 +4,7 @@
             <meta charset="utf-8">
             <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename = 'css/style.css')}}"/>
             <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename = 'css/index.css')}}"/>
+            <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename = 'css/page.css')}}"/>
             <link rel="icon" type="image/jpg" href="{{ url_for('static', filename = 'image/twice new.jpg')}}" > 
             <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
             <!--link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}"-->
@@ -14,5 +15,36 @@
         </head>
         <body>
 
+            <h1>Login</h1>
+            <p> {{error}} </p>
+            <form action="/login" method="POST">
+                <p>Email: <input type="text" name="email"></p>
+                <p>Password: <input type="password" name="password"></p>
+                <p><input type="submit"></p>
+                <a href="/registerationForm">Register here</a>
+            </form>
+
+            <h1>Register</h1>
+            <form action="/register" method="POST" onsubmit="return validate()">
+                <p>Email: <input type="email" name="email"></p>
+            
+                <P>Password: <input type="password" name="password" id="password" required></p>
+            
+                <p>Confirm Password: <input type="password" name="cpassword" id="cpassword"></p>
+            
+                <p>Full Name: <input type="text" name="username"></p>
+                <p>Delivery Address: <input type="text" name="delivery_address"></p>
+                <p>City: <input type="text" name="city"></p>
+                <p>State: <input type="text" name="state"></p>
+                <p>Country: <input type="text" name="country"></p>
+                <p>Phone Number: <input type="text" name="phone"></p>
+            
+                <p><input type="submit" value="Register"></p>
+            
+                <a href="/loginForm">Login here</a>
+            </form>
+
+            
+            <a href="/admin/portal"><h6>Log in as admin</h6></a>
         </body>
     </html>

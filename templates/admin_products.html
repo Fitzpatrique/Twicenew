@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename = 'css/admin.css')}}"/>
+            <link rel="icon" type="image/jpg" href="{{ url_for('static', filename = 'image/twice new.jpg')}}" > 
+            <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+            <!--link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}"-->
+            <title> TWICE NEW </title>
+            <meta name = "description" content = "Looks so good they would think it's new">
+            <meta name="keywords" content="thrift,online store,store,marketplace,fashion,fashion store">
+            <script type="text/javascript" src="{{ url_for('static', filename = 'js/validateForm.js') }}"></script>
+        </head>
+        <body>
+            <a href="/account/profile/view"><p>View profile</p></a>
+            <a href="/admin/orders">Orders</a>
+            <a href="/admin/products">Products</a>
+            <a href="/admin/categories">Categories</a>
+
+            <a href="{{ url_for('add',admin_code='1hSQGIApZXPGt_6yCX9VQJ57CNeKWYiTT#') }}">Add Product</a><br>
+
+            
+            <h2>Products</h2>
+
+            
+            <div>
+                {% for item in data %}
+                    
+                    {% for item2 in itemData %}
+
+                        {% if item2[9] == item[0] %}
+                    
+                            {{item2[1]}}, {{item2[2]}}, {{item2[2]}}, {{item2[4]}}, {{item2[5]}}, {{item2[6]}}, {{item2[7]}}, {{item2[8]}}, {{item[1]}} <a href="/removeItem?productId={{item2[0]}}">Remove</a> <br><br><br>
+
+                        {% endif %}
+            
+                    {% endfor %}
+
+                    
+                    
+                {% endfor %}
+
+
+            </div>
+
+        </body>
+    </html>
